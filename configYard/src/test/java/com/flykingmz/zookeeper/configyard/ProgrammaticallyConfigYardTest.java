@@ -29,10 +29,10 @@ public class ProgrammaticallyConfigYardTest {
 		logger.info("value is===>"+yard.get("testKey4"));
 		logger.info("value is===>"+yard.get("testKey5"));
 		logger.info("value is===>"+yard.get("testKey6"));
-		//yard.update("testKey6", "testKey6");// 触发上面的监听器，这个监听器只会响应一次，而且只有一个监听器
+		yard.update("testKey6", "testKey6");// 触发上面的监听器，这个监听器只会响应一次，而且只有一个监听器
 		logger.info("update testKey6 value is===>"+yard.get("testKey6"));
 		yard.delete("testKey1");
-		Thread.sleep(1000);
+		Thread.sleep(1000);//增加延迟防止节点删除后去读删除节点的数据
 		yard.delete("testKey2");
 		Thread.sleep(1000);
 		yard.delete("testKey3");
