@@ -54,14 +54,14 @@ public class ProgrammaticallyConfigYard implements ConfigYard {
 	public void add(String key, String value) {
 		String contactKey = this.contactKey(key);
 		this.client.createPersistent(contactKey, value);
-		//configYardWatcher.watcher(contactKey);
-		configYardWatcher.watcher(contactKey,configYardWatcher.new ConfigYardListener());
+		configYardWatcher.watcher(contactKey);
+		//configYardWatcher.watcher(contactKey,configYardWatcher.new ConfigYardListener());
 	}
 
 	public void update(String key, String value) {
 		String contactKey = this.contactKey(key);
 		this.client.writeData(contactKey, value);
-		configYardWatcher.watcher(contactKey);
+		//configYardWatcher.watcher(contactKey);
 		//configYardWatcher.watcher(contactKey,configYardWatcher.new ConfigYardListener());
 	}
 
